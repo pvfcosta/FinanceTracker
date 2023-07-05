@@ -11,7 +11,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddDbContext<DatabaseContext>(options =>
 {
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
+    options.UseSqlServer("Server=NOTEBOOK-PV;Database=financetracker;Trusted_Connection=True;TrustServerCertificate=True;");
 });
 
 builder.Services.AddScoped<ICategoryService, CategoryService>();
