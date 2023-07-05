@@ -1,5 +1,5 @@
 using FinanceTracker.Domain.Entities;
-using FinanceTracker.Domain.Interfaces.Services.Base;
+using FinanceTracker.Domain.Interfaces.Services;
 using FinanceTracker.Service.Validators;
 using Microsoft.AspNetCore.Mvc;
 
@@ -9,11 +9,11 @@ namespace FinanceTracker.Application.Controllers
     [Route("api/transaction")]
     public class TransactionController : ControllerBase
     {
-        private readonly IBaseService<Transaction> _baseTransactionService;
+        private readonly ITransactionService _transactionService;
 
-        public TransactionController(IBaseService<Transaction> baseService)
+        public TransactionController(ITransactionService transactionService)
         {
-            _baseTransactionService = baseService;
+            _transactionService = transactionService;
         }
 
         [HttpPost]
@@ -21,7 +21,7 @@ namespace FinanceTracker.Application.Controllers
         {
             if (transaction == null) return NotFound();
 
-            return Execute(() => _baseTransactionService.Add<TransactionValidator>(transaction).Id);
+            return Execute(() => _transactionService.Add(transaction).Id);
         }
 
         [HttpPut]
@@ -29,7 +29,7 @@ namespace FinanceTracker.Application.Controllers
         {
             if (transaction == null) return NotFound();
 
-            return Execute(() => _baseTransactionService.Update<TransactionValidator>(transaction));
+            return Execute(() => _transactionService.Update<TransactionValidator>(transaction));
         }
 
         [HttpDelete("{id}")]
@@ -39,7 +39,7 @@ namespace FinanceTracker.Application.Controllers
 
             Execute(() =>
             {
-                _baseTransactionService.Delete(id);
+                _transactionService.Delete(id);
                 return true;
             });
 
@@ -49,7 +49,7 @@ namespace FinanceTracker.Application.Controllers
         [HttpGet]
         public IActionResult Get()
         {
-            return Execute(() => _baseTransactionService.Get());
+            return Execute(() => _transactionService.Get());
         }
 
         [HttpGet("{id}")]
@@ -57,7 +57,7 @@ namespace FinanceTracker.Application.Controllers
         {
             if (id == 0) return NotFound();
 
-            return Execute(() => _baseTransactionService.GetById(id));
+            return Execute(() => _transactionService.GetById(id));
         }
 
         private IActionResult Execute(Func<object> func)

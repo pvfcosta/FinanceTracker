@@ -5,10 +5,10 @@ using FluentValidation;
 
 namespace FinanceTracker.Service.Services.Base
 {
-    public class BaseService<TEntity> : IBaseService<TEntity> where TEntity : BaseEntity
+    public abstract class BaseService<TEntity> : IBaseService<TEntity> where TEntity : BaseEntity
     {
         protected readonly IBaseRepository<TEntity> _baseRepository;
-        public BaseService(IBaseRepository<TEntity> baseRepository)
+        protected BaseService(IBaseRepository<TEntity> baseRepository)
         {
             _baseRepository = baseRepository;
         }

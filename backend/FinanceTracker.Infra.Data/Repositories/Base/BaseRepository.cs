@@ -1,14 +1,14 @@
 ﻿using FinanceTracker.Domain.Entities.Base;
 using FinanceTracker.Domain.Interfaces.Repositories.Base;
-using FinanceTracker.Infra.Data.Context;
+using Microsoft.EntityFrameworkCore;
 
-namespace FinanceTracker.Infra.Data.Repositories
+namespace FinanceTracker.Infra.Data.Repositories.Base
 {
-    public class BaseRepository<TEntity> : IBaseRepository<TEntity> where TEntity : BaseEntity
+    public abstract class BaseRepository<TEntity> : IBaseRepository<TEntity> where TEntity : BaseEntity
     {
-        protected readonly DatabaseContext _databaseContext;
+        protected readonly DbContext _databaseContext;
 
-        public BaseRepository(DatabaseContext databaseContext)
+        protected BaseRepository(DbContext databaseContext)
         {
             _databaseContext = databaseContext;
         }
@@ -31,7 +31,7 @@ namespace FinanceTracker.Infra.Data.Repositories
 
         public void Update(TEntity obj)
         {
-            _databaseContext.Entry(obj).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+            _databaseContext.Entry(obj).State = EntityState.Modified;
             _databaseContext.SaveChanges();
         }
     }

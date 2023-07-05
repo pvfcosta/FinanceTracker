@@ -1,16 +1,16 @@
 ﻿using FinanceTracker.Domain.Entities;
-using FinanceTracker.Domain.Interfaces.Repositories.Base;
+using FinanceTracker.Domain.Interfaces.Repositories;
+using FinanceTracker.Domain.Interfaces.Services;
 using FinanceTracker.Service.Services.Base;
 using FinanceTracker.Service.Validators;
 using FluentValidation;
 
 namespace FinanceTracker.Service.Services
 {
-    public class TransactionService : BaseService<Transaction>
+    public class TransactionService : BaseService<Transaction>, ITransactionService
     {
-        public TransactionService(IBaseRepository<Transaction> baseRepository)
+        public TransactionService(ITransactionRepository transactionRepository) : base(transactionRepository)
         {
-            _baseRepository = baseRepository;
         }
 
         public Transaction Add(Transaction transaction)
