@@ -20,7 +20,7 @@ namespace FinanceTracker.Infra.Data.Mapping
 
             builder.Property(t => t.CategoryId).HasColumnName("CategoryId");
 
-            builder.HasOne(t => t.Category).WithMany(c => c.Transactions).HasForeignKey(t => t.CategoryId);
+            builder.HasOne(t => t.Category).WithMany(c => c.Transactions).HasForeignKey(t => t.CategoryId).IsRequired(false);
         }
     }
 }

@@ -8,7 +8,7 @@ namespace FinanceTracker.Infra.Data.Mapping
     {
         public void Configure(EntityTypeBuilder<Category> builder)
         {
-            builder.ToTable("Transaction");
+            builder.ToTable("Category");
 
             builder.HasKey(c => c.Id);
 
