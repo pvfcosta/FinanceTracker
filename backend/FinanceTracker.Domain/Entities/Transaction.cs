@@ -1,4 +1,5 @@
 ﻿using FinanceTracker.Domain.Entities.Base;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace FinanceTracker.Domain.Entities
 {
@@ -7,6 +8,7 @@ namespace FinanceTracker.Domain.Entities
         public double Value { get; set; }
         public string Description { get; set; }
         public DateTime TransactionDate { get; set; }
-        public Category Category { get; set; }
+        public int? CategoryId { get; set; }
+        public virtual Category Category { get; set; }
     }
 }
