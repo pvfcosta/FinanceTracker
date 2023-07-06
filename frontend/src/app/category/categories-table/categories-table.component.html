@@ -1,0 +1,29 @@
+<div class="categories-table" *ngIf="tableDataSource">
+    <mat-table
+        id="categories-table-data"
+        [dataSource]="tableDataSource"
+        class="categories-table__data"
+    >
+        <ng-container matColumnDef="Name">
+            <mat-header-cell *matHeaderCellDef class="categories-table__header">Name</mat-header-cell>
+            <mat-cell *matCellDef="let category">
+                <span
+                    class="categories-table__text"
+                >{{ category.name }}</span>
+            </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="Actions">
+            <mat-header-cell *matHeaderCellDef class="categories-table__header">Actions</mat-header-cell>
+            <mat-cell *matCellDef="let category">
+                <span
+                    class="categories-table__icons"
+                >
+                <mat-icon class="categories-table__icon categories-table__icon--edit">edit</mat-icon>
+                <mat-icon class="categories-table__icon categories-table__icon--delete">delete</mat-icon>
+            </span>
+            </mat-cell>
+        </ng-container>
+        <mat-header-row class="categories-table__header" *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row class="categories-table__row" *matRowDef="let row; columns: displayedColumns"></mat-row>
+    </mat-table>
+</div>

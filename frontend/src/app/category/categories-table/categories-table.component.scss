@@ -1,0 +1,19 @@
+.categories-table {
+    padding: 32px;
+    color: #162c38;
+
+    &__text {
+        margin: 0 0 0 16px;
+        font-size: 14px;
+        font-weight: 400px;
+    }
+
+    &__icon {
+        margin: 0 0 0 16px;
+
+        &--delete {
+            color: red;
+        }
+    }
+
+}

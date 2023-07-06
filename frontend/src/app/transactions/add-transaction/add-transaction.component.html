@@ -1,0 +1,48 @@
+<p class="title">Add transaction</p>
+<form [formGroup]="addTransactionForm" class="transaction-form">
+    <div class="transaction-form__input">
+        <mat-form-field appearance="outline">
+            <input 
+            matInput
+            type="text"
+            formControlName="transactionValue"
+            placeholder="Type the amount"
+            >
+        </mat-form-field>
+    </div>
+    <div class="transaction-form__input">
+        <mat-form-field appearance="outline">
+            <input 
+                matInput
+                type="text"
+                formControlName="description"
+                placeholder="Type the description"
+            >
+        </mat-form-field>
+    </div>
+    <div class="transaction-form__input">
+        <mat-form-field appearance="outline">
+            <mat-select
+                placeHolder="Select category"
+                formControlName="category"
+            >
+                <mat-option *ngFor="let category of categories" [value]="category" >
+                    {{ category.name }}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+</form>
+<div class="buttons">
+    <button mat-button color="primary" class="buttons__button">
+        <p class="buttons__text">Add</p>
+    </button>
+    <button mat-button color="accent" class="buttons__button" routerLink="/categories/add">
+        <p class="buttons__text">Add Category</p>
+    </button>
+    <button mat-button color="warn" class="buttons__button" routerLink="/transactions">
+        <p class="buttons__text">Cancel</p>
+    </button>
+</div>
+
+

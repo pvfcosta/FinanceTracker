@@ -21,7 +21,7 @@ namespace FinanceTracker.Application.Controllers
         {
             if (category == null) return NotFound();
 
-            return Execute(() => _categoryService.Add(category).Id);
+            return Execute(() => _categoryService.Add(category));
         }
 
         [HttpPut]

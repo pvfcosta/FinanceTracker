@@ -1,0 +1,18 @@
+.buttons {
+    margin: 0 0 0 32px;
+
+    &__add {
+        background-color: #417972;
+        padding: 24px;
+    }
+
+    &__icon {
+        color: #f5f2e5;
+        transform: scale(1.2);
+    } 
+
+    &__text {
+        color: #f5f2e5;
+        font-size: 20px;
+    }
+}
