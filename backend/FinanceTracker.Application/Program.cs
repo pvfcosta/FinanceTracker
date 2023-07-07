@@ -10,8 +10,10 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddDbContext<DatabaseContext>(options =>
 {
-    options.UseSqlServer("Server=NOTEBOOK-PV;Database=financetracker;Trusted_Connection=True;TrustServerCertificate=True;");
+    options.UseSqlServer("Server=localhost,1433;Database=financetracker;User ID=sa;Password=1q2w3e4r@#$;TrustServerCertificate=True;");
 });
+
+builder.WebHost.UseUrls("http://*:5005");
 
 builder.Services.AddScoped<ICategoryService, CategoryService>();
 builder.Services.AddScoped<ITransactionService, TransactionService>();
@@ -25,7 +27,7 @@ builder.Services.AddCors(options =>
 {
     options.AddPolicy("FinanceTrackerPolicy", builder =>
     {
-        builder.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin().WithExposedHeaders("X-Total-Count");
+        builder.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin();
     });
 });
 var app = builder.Build();

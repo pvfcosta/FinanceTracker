@@ -5,7 +5,7 @@ import { Observable, catchError, throwError } from 'rxjs';
 
 @Injectable()
 export class BaseService {
-    private apiUrl: string = "https://localhost:7190/api";
+    private apiUrl: string = "http://localhost:8000/api";
     
     constructor(
         private http: HttpClient,

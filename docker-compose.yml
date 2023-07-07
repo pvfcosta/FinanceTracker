@@ -1,0 +1,23 @@
+version: '3'
+services:
+  frontend:
+    image: financetracker-frontend
+    ports:
+      - 80:80
+    restart: always
+
+  backend:
+    image: financetracker-backend
+    ports:
+      - 8000:5005
+    restart: always
+
+  database:
+    image: mcr.microsoft.com/mssql/server:latest
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=1q2w3e4r@#$
+    ports:
+      - 1433:1433
+    container_name: database_container
+    restart: always
