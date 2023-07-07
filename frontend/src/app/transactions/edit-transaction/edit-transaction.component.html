@@ -34,7 +34,7 @@
     </div>
 </form>
 <div class="buttons">
-    <button mat-button color="primary" class="buttons__button" (click)="onEditClick()">
+    <button [disabled]="isButtonDisabled()" mat-button color="primary" class="buttons__button" (click)="onEditClick()">
         <p class="buttons__text">Edit</p>
     </button>
     <button mat-button color="warn" class="buttons__button" routerLink="/transactions">

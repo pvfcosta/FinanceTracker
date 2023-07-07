@@ -39,7 +39,7 @@ export class AddTransactionComponent implements OnDestroy{
 
   createForm(): void {
     this.addTransactionForm = this.formBuilder.group({
-      transactionValue: this.formBuilder.control<string>('', [Validators.required]),
+      transactionValue: this.formBuilder.control<string>('', [Validators.required, Validators.pattern(/^(?:[0-9]{1,9}(?:[.,][0-9]{0,2})?|[0-9]{0,9}[.,][0-9]{1,2})$/)]),
       description: this.formBuilder.control<string>('',[Validators.maxLength(200)]),
       category: this.formBuilder.control<Category>(this.category),
     });
@@ -66,5 +66,12 @@ export class AddTransactionComponent implements OnDestroy{
       this.categories = retrievedCategories;
       this.categories.unshift(new Category('None',0));
     })
+  }
+
+  isButtonDisabled(): boolean {
+    this.addTransactionForm.updateValueAndValidity();
+    return !!this.addTransactionForm.controls['transactionValue']?.errors || 
+    !!this.addTransactionForm.controls['description']?.errors ||
+    !!this.addTransactionForm.controls['category']?.errors;
   }
 }

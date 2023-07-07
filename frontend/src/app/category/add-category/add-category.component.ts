@@ -35,4 +35,8 @@ export class AddCategoryComponent {
     })
   }
 
+  isButtonDisabled(): boolean {
+    return !!this.addCategoryForm.controls['name']?.errors;
+  }
+
 }

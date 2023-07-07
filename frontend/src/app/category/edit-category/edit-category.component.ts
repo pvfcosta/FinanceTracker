@@ -63,4 +63,8 @@ export class EditCategoryComponent implements OnDestroy  {
       this.router.navigate(['categories']);
     })
   }
+
+  isButtonDisabled(): boolean {
+    return !!this.editCategoryForm.controls['name']?.errors;
+  }
 }
