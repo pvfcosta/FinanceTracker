@@ -1,8 +1,6 @@
 .buttons {
-    margin: 0 0 0 32px;
-
     &__add {
-        background-color: #417972;
+        background-color: #162c38;
         padding: 24px;
     }
 
@@ -14,5 +12,18 @@
     &__text {
         color: #f5f2e5;
         font-size: 20px;
+    }
+}
+
+.header {
+    margin: 0  32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    &__title {
+        font-size: 24px;
+        font-weight: 700;
+        color: #162c38;
     }
 }

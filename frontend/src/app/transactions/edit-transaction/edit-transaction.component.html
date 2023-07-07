@@ -1,5 +1,5 @@
-<p class="title">Add transaction</p>
-<form [formGroup]="addTransactionForm" class="transaction-form">
+<p class="title">Edit Transaction</p>
+<form [formGroup]="editTransactionForm" class="transaction-form" *ngIf="transaction.id && transaction.id > 0">
     <div class="transaction-form__input">
         <mat-form-field appearance="outline">
             <input 
@@ -34,11 +34,8 @@
     </div>
 </form>
 <div class="buttons">
-    <button mat-button color="primary" class="buttons__button" (click)="onCreateClick()">
-        <p class="buttons__text">Add</p>
-    </button>
-    <button mat-button color="accent" class="buttons__button" routerLink="/categories/add">
-        <p class="buttons__text">Add Category</p>
+    <button mat-button color="primary" class="buttons__button" (click)="onEditClick()">
+        <p class="buttons__text">Edit</p>
     </button>
     <button mat-button color="warn" class="buttons__button" routerLink="/transactions">
         <p class="buttons__text">Cancel</p>

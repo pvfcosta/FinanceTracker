@@ -42,7 +42,29 @@ export class BaseService {
 
     }
 
-    createHttpParams(params: { [key: string]: any } = {}, concatArrayParams: boolean): HttpParams {
+    protected put<T>(route: string, body: Object|null = null, parameters: { [key: string]: any } = {}){
+        const url = this.getRoute(route);
+        const httpParams: HttpParams = new HttpParams({ fromObject: parameters });
+        const httpHeader = this.createHttpHeader();
+        return <Observable<T>>this.http.put(url, body, {
+            params: httpParams,
+            headers: httpHeader
+        })
+        .pipe(catchError((error) => this.error(error)))
+    }
+
+    protected delete<T>(route: string, parameters: { [key: string]: any } = {}) {
+        const url = this.getRoute(route);
+        const httpParams: HttpParams = new HttpParams({ fromObject: parameters });
+        const httpHeader = this.createHttpHeader();
+        return <Observable<T>>this.http.delete(url, {
+            params: httpParams,
+            headers: httpHeader
+        })
+        .pipe(catchError((error) => this.error(error)))
+    }
+
+    private createHttpParams(params: { [key: string]: any } = {}, concatArrayParams: boolean): HttpParams {
         let httpParams: HttpParams = new HttpParams();
         Object.keys(params).forEach((param: string) => {
             if (this.verifyParamValidity(params, param) && Array.isArray(params[param]) && !concatArrayParams) {
@@ -57,7 +79,7 @@ export class BaseService {
         return httpParams;
     }
 
-    verifyParamValidity(params: { [key: string]: any[] } = {}, param: string): boolean {
+    private verifyParamValidity(params: { [key: string]: any[] } = {}, param: string): boolean {
         return (
             params[param] != null && ((Array.isArray(params[param] && params[param].length)) || !Array.isArray(params[param]))
         );

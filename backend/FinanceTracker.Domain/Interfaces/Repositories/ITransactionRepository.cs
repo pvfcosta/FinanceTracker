@@ -5,5 +5,6 @@ namespace FinanceTracker.Domain.Interfaces.Repositories
 {
     public interface ITransactionRepository : IBaseRepository<Transaction>
     {
+        new IList<Transaction> Select();
     }
 }

@@ -20,7 +20,10 @@ import { CategoriesTableComponent } from './category/categories-table/categories
 import { CategoriesViewComponent } from './category/categories-view/categories-view.component';
 import { HeaderComponent } from './core/header/header.component';
 import { CategoryService } from './shared/services/category.service';
+import { TransactionService } from './shared/services/transaction.service';
 import { AddTransactionComponent } from './transactions/add-transaction/add-transaction.component';
+import { EditTransactionComponent } from './transactions/edit-transaction/edit-transaction.component';
+import { TransactionManagerService } from './transactions/transaction-manager.service';
 import { TransactionsTableComponent } from './transactions/transactions-table/transactions-table.component';
 import { TransactionsViewComponent } from './transactions/transactions-view/transactions-view.component';
 
@@ -33,7 +36,8 @@ import { TransactionsViewComponent } from './transactions/transactions-view/tran
     AddTransactionComponent,
     AddCategoryComponent,
     CategoriesTableComponent,
-    CategoriesViewComponent
+    CategoriesViewComponent,
+    EditTransactionComponent
   ],
   imports: [
     BrowserModule,
@@ -52,7 +56,11 @@ import { TransactionsViewComponent } from './transactions/transactions-view/tran
     MatSelectModule,
     MatTableModule,
   ],
-  providers: [CategoryService],
+  providers: [
+    CategoryService, 
+    TransactionService, 
+    TransactionManagerService,
+   ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

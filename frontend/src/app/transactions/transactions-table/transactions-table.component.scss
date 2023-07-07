@@ -1,0 +1,59 @@
+.transactions-table {
+    padding: 32px;
+    color: #162c38;
+
+    &__text {
+        font-size: 14px;
+        font-weight: 400px;
+    }
+
+    &__icon {
+        margin: 0 0 0 16px;
+
+        &--delete {
+            color: red;
+        }
+    }
+}
+
+.mat-column {
+    &-Value, &-Description, &-Category, &-Date, &-Actions {
+        align-items: center;
+        justify-content: center;
+    }
+
+    &-Value {
+        flex: 0 0 15%;
+        min-width: 15%;
+    }
+
+    &-Description {
+        flex: 0 0 30%;
+        min-width: 30%;
+    }
+
+    &-Category {
+        flex: 0 0 20%;
+        min-width: 20%;  
+    }
+
+    &-Date {
+        flex: 0 0 25%;
+        min-width: 25%;
+    }
+
+    &-Actions { 
+        flex: 0 0 10%;
+        min-width: 10%;
+    }
+}
+
+/* .mat-column-Value, .mat-column-Description, .mat-column-Category, .mat-column-Date, .mat-column-Actions{
+    align-items: center;
+    justify-content: center;
+} */
+
+.mat-row {
+    align-items: center;
+    justify-content: center;
+}

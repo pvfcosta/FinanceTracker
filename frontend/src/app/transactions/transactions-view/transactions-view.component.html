@@ -1,6 +1,10 @@
-<div class="buttons">
-    <button mat-button color="primary" class="buttons__add" routerLink="/transactions/add">
-        <mat-icon class="buttons__icon">add</mat-icon>
-        <span class="buttons__text">Add</span>
-    </button>
+<div class="header">
+    <span class="header__title">Transactions</span>
+    <div class="buttons">
+        <button mat-button color="primary" class="buttons__add" routerLink="/transactions/add">
+            <mat-icon class="buttons__icon">add</mat-icon>
+            <span class="buttons__text">Add</span>
+        </button>
+    </div>
 </div>
+<app-transactions-table></app-transactions-table>

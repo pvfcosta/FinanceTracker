@@ -1,0 +1,19 @@
+.title {
+    color: #162c38;
+    font-size: 20px;
+    padding: 12px 0 12px 32px;
+}
+
+.transaction-form {    
+    &__input {
+        padding: 12px 0 0 32px;
+        font-size: 14px;
+    }
+}
+
+.buttons {
+    padding: 12px 0 12px 32px;
+    &__button {
+        padding: 24px;
+    }
+}
