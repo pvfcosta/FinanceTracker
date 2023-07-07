@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Category } from 'app/models/category.model';
@@ -12,7 +12,7 @@ import { Subject, Subscription, take, takeUntil } from 'rxjs';
   templateUrl: './edit-transaction.component.html',
   styleUrls: ['./edit-transaction.component.scss']
 })
-export class EditTransactionComponent {
+export class EditTransactionComponent implements OnDestroy {
   id: number = 0;
   
   transaction: Transaction = new Transaction(0, '');
@@ -50,7 +50,6 @@ export class EditTransactionComponent {
 
   getTransaction(): void {
     this.transactionService.getTransactionById(this.id).pipe(take(1)).subscribe((editTransaction: Transaction) => {
-      console.log(editTransaction);
       this.transaction = editTransaction;
       this.createForm();
     })

@@ -62,7 +62,6 @@ export class TransactionsTableComponent implements OnDestroy {
   }
 
   editTransaction(transaction: Transaction): void {
-    this.router.navigate(['transactions', transaction.id]);
-    this.transactionManagerService.transactionSubject.next(transaction);
+    this.router.navigate(['transactions/edit/', transaction.id]);
   }
 }

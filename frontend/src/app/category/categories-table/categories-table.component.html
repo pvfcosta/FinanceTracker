@@ -18,8 +18,8 @@
                 <span
                     class="categories-table__icons"
                 >
-                <mat-icon class="categories-table__icon categories-table__icon--edit">edit</mat-icon>
-                <mat-icon class="categories-table__icon categories-table__icon--delete">delete</mat-icon>
+                <mat-icon class="categories-table__icon categories-table__icon--edit" (click)="editCategory(category)">edit</mat-icon>
+                <mat-icon class="categories-table__icon categories-table__icon--delete" (click)="deleteCategory(category)">delete</mat-icon>
             </span>
             </mat-cell>
         </ng-container>

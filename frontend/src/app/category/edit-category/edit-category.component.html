@@ -1,0 +1,23 @@
+<p class="title">Edit Category</p>
+<form [formGroup]="editCategoryForm" class="category-form" *ngIf="category.name.length > 0">
+    <div class="category-form__input">
+        <mat-form-field appearance="outline">
+            <input 
+            matInput
+            type="text"
+            formControlName="name"
+            placeholder="Type the amount"
+            >
+        </mat-form-field>
+    </div>
+</form>
+<div class="buttons">
+    <button mat-button color="primary" class="buttons__button" (click)="onEditClick()">
+        <p class="buttons__text">Edit</p>
+    </button>
+    <button mat-button color="warn" class="buttons__button" routerLink="/categories">
+        <p class="buttons__text">Cancel</p>
+    </button>
+</div>
+
+

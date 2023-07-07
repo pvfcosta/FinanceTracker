@@ -19,4 +19,17 @@ export class CategoryService extends BaseService {
         return this.get<Array<Category>>('category');
     }
 
+    deleteCategory(id: number): Observable<void> {
+        const route: string = `category/${id}`;
+        return this.delete<void>(route);
+    }
+
+    editCategory(category: Category): Observable<Category> {
+        return this.put<Category>('category',category);
+    }
+
+    getCategoryById(id: number): Observable<Category> {
+        return this.get<Category>(`category/${id}`);
+    }
+
 }

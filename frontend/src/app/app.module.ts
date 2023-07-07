@@ -26,6 +26,7 @@ import { EditTransactionComponent } from './transactions/edit-transaction/edit-t
 import { TransactionManagerService } from './transactions/transaction-manager.service';
 import { TransactionsTableComponent } from './transactions/transactions-table/transactions-table.component';
 import { TransactionsViewComponent } from './transactions/transactions-view/transactions-view.component';
+import { EditCategoryComponent } from './category/edit-category/edit-category.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { TransactionsViewComponent } from './transactions/transactions-view/tran
     AddCategoryComponent,
     CategoriesTableComponent,
     CategoriesViewComponent,
-    EditTransactionComponent
+    EditTransactionComponent,
+    EditCategoryComponent
   ],
   imports: [
     BrowserModule,
